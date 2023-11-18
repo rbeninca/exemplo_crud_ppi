@@ -6,16 +6,16 @@ USE `crud_ppi`;
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `senha` varchar(255) NOT NULL,
+  `data_cadastro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
 -- Carga de datos de inicial para teste
-INSERT INTO `usuarios` (`name`, `email`, `password`) VALUES
+INSERT INTO `usuarios` (`name`, `email`, `senha`) VALUES
 ('admin', 'admin@gmail.com' , '123456'),
 ('user', 'user@hotmail.com', '123456'),
 ('Ana Silva', 'ana.silva@example.com', 'senha123'),
