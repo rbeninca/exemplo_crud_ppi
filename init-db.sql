@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 
 -- Carga de datos de inicial para teste
-INSERT INTO `usuarios` (`name`, `email`, `senha`) VALUES
+INSERT INTO `usuarios` (`nome`, `email`, `senha`) VALUES
 ('admin', 'admin@gmail.com' , '123456'),
 ('user', 'user@hotmail.com', '123456'),
 ('Ana Silva', 'ana.silva@example.com', 'senha123'),
