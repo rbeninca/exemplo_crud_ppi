@@ -30,8 +30,9 @@
             ./index.php -arquivo que implementa a tela inicial
             ./Model 
             ./Model/DAUsuario.php
-            ./Dockerfile
-            ./docker-compose.yml
+            ./Dockerfile --arquivo de configuração do docker para o php
+            ./docker-compose.yml --arquivo de configuração do docker para o php 
+            ./init-db.sql --arquivo de configuração do banco de dados e inicialização
     </div>
 </body>
 </html>
