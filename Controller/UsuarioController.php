@@ -1,6 +1,7 @@
 <?php 
-include_once("../Model/DAOUsuario.php");
-include_once("../Model/Usuario.php");
+require_once __DIR__ . '/../Model/DAOUsuario.php';
+require_once __DIR__ . ("/../Model/Usuario.php");
+
 
 class UsuarioController {
     private $daoUsuario;
@@ -8,12 +9,15 @@ class UsuarioController {
     public function __construct() {
         $database = new DatabaseMysql(); 
         $db = $database->getConnection();
-        $this->daoUsuario = new DAOUsuario($db);
+        $this->daoUsuario = new DAOUsuario();
     }
 
-    public function cadastrarUsuario($nome, $email, $senha, $data_cadastro) {
+    public function cadastrarUsuario($nome, $email, $senha, $data_cadastro=null) {
         $usuario = new Usuario();
-        $usuario->setAll(null, $nome, $email, $senha, $data_cadastro);
+        
+        $usuario->setAll(null, $nome, $email, $senha);
+        
+        
         return $this->daoUsuario->insertUsuario($usuario);
     }
 
@@ -32,7 +36,13 @@ class UsuarioController {
     }
 
     public function listaTodosUsuarios() {
-        return $this->daoUsuario->getUsuarios();
+
+        $usuarios= $this->daoUsuario->getUsuarios();
+        /*echo "<pre>";
+        echo var_dump($usuarios);
+        echo "</pre>"; 
+        */
+        return $usuarios;
     }
 }
 
