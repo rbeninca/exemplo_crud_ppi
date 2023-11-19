@@ -32,7 +32,15 @@
         <label for="password">Senha</label>
         <input type="password" name="senha" id="password" placeholder="Password"  value="<?php echo $usuario['senha'];?>">
         <label for="data_cadastro">Data cadastro</label>
-        <input type="date" name="data_cadastro" id="data_cadastro" placeholder="Data cadastro"  value="<?php echo $usuario['data_cadastro'];?>" disabled>  
+        <?php 
+        if(isset($usuario['data_cadastro'])) {
+            $date = new DateTime($usuario['data_cadastro']);
+            $formatted_date = $date->format('Y-m-d');
+        } else {
+            $formatted_date = '';
+        }
+        ?>
+        <input type="date" name="data_cadastro" id="data_cadastro"   value="<?php echo $formatted_date ;?>" disabled>  
         <input type="submit" value="Salvar">
     </form>
 </div>

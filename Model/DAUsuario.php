@@ -37,11 +37,12 @@ function getUser($id){
 }
 function insertUser($nome, $email, $senha){
     $conn = conectar();
-    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)";
+    $sql = "INSERT INTO usuarios (nome, email, senha,data_cadastro) VALUES (:nome, :email, :senha, NOW())";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':senha', $senha);
+
     $stmt->execute();
     return $stmt->rowCount();
 }
@@ -53,6 +54,7 @@ function updateUser($id, $nome, $email, $senha){
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':senha', $senha);
+    
     $stmt->execute();
     return $stmt->rowCount();
 }
