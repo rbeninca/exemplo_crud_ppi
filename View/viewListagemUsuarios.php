@@ -55,7 +55,8 @@
 
         <?php         
             include_once (__DIR__."/../Model/DAUsuario.php");
-            $usuarios = getAllUser();   
+            
+            $usuarios = getAllUser($pesquisaByName);   
             foreach($usuarios as $usuario){
                 echo "<tr>";
                 echo "<td>".$usuario['id']."</td>";

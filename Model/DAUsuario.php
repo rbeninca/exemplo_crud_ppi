@@ -18,9 +18,9 @@ function conectar(){
     }
     return $conn;
 }
-function getAllUser(){
+function getAllUser( $str =""){
     $conn = conectar();
-    $sql = "SELECT * FROM usuarios";
+    $sql = "SELECT * FROM usuarios WHERE nome LIKE '%$str%'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
