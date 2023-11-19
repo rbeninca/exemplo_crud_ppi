@@ -30,6 +30,6 @@
     <ul>
         <li><a href="telaListaUsuarios.php">Home</a></li>
         <li><a href="telaCadastrarUsuario.php">Cadastrar</a></li>
-        <li><a href="telaSobreCrud.php">Sobre o Crud</a></li>
+        <li><a href="tela_sobre.php">Sobre o Crud</a></li>
     </ul>
 </menu>

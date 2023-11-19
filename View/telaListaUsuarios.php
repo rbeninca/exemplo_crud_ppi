@@ -7,11 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php 
-    
-        include_once("viewMenu.php");
-     
-        include_once("viewListagemUsuarios.php");
-    ?>
+<?php  
+    include_once("viewMenu.php");
+    include_once("viewListagemUsuarios.php");
+?>
 </body>
 </html>

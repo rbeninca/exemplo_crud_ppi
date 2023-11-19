@@ -47,25 +47,27 @@
         </tr>
     </thead>
     <tbody>
-        <?php
-            //Controller/listaUsuarios.php
-            include_once "../Controller/UsuarioController.php";
-            include_once "../Model/Usuario.php";
-            $controller= new  UsuarioController();
+        <?php 
+        include_once("viewMenu.php");
+        ?>
+        <h1>Lista de Usuarios</h1>
+       
 
-            
-            $usuarios = $controller->listaTodosUsuarios();
+        <?php         
+            include_once (__DIR__."/../Model/DAUsuario.php");
+            $usuarios = getAllUser();   
             foreach($usuarios as $usuario){
                 echo "<tr>";
-                echo "<td>".$usuario->id."</td>";
-                echo "<td>".$usuario->nome."</td>";
-                echo "<td>".$usuario->email."</td>";
-                echo "<td>".$usuario->data_cadastro."</td>";
-                echo "<td><a href='telaEditarUsuario.php?id=".$usuario->id."'>Editar</a>";
-
-                echo "<a href='/Rota.php?id=".$usuario->id."&op=excluir_usuario'>Excluir</a></td>";
+                echo "<td>".$usuario['id']."</td>";
+                echo "<td>".$usuario['nome']."</td>";
+                echo "<td>".$usuario['email']."</td>";
+                echo "<td>".$usuario['data_cadastro']."</td>";
+                echo "<td>";
+                echo "<a href='telaEditarUsuario.php?id=".$usuario['id']."'>Editar</a>";
+                echo "<a href='excluir_usuario.php?id=".$usuario['id']."&op=confirma_ok'>Excluir</a></td>";
                 echo "</tr>";
             }
         ?>
     </tbody>
-</table>
+
+</div>
